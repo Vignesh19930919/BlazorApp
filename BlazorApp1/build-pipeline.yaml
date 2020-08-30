@@ -20,7 +20,7 @@ steps:
     projects: '**/*.csproj'
 - task: CopyFiles@2
   inputs:
-    SourceFolder:
+    SourceFolder: '**/bin/**'
     Contents: '**'
     TargetFolder: '$(System.BuildArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
