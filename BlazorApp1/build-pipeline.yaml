@@ -18,7 +18,13 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.csproj'
-- task: DotNetCoreCLI@2
+- task: CopyFiles@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
+    SourceFolder: '$(System.CurrentWorkingDirectory)/Vignesh19930919/BlazorApp/BlazorApp1/bin'
+    Contents: '**'
+    TargetFolder: '$(System.BuildArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
