@@ -11,6 +11,19 @@ steps:
     projects: '**/*.csproj'
     feedsToUse: 'select'
     vstsFeed: '62f9f89c-9f06-4957-9e86-f06b3b597259'
+
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare Sonar Cloud Analysis'
+  inputs:
+    SonarCloud: 'AzureDevops'
+    organization: '114004233vignesh'
+    scannerMode: 'MSBuild'
+    projectKey: 'AzureDevops'
+    projectName: 'AzureDevops'
+    projectVersion: '$(Build.BuildNumber)'
+    extraProperties: |
+      sonar.cs.opencover.reportspaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+      sonar.exclusions=**/wwwroot/lib/**/*
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
@@ -18,6 +31,14 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.csproj'
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Sonar Cloud Analyzer'
+
+- task: SonarCloudPublish@1
+  displayName: 'sonar cloud Results'
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     Contents: '**/bin/**'
