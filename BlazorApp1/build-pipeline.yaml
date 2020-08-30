@@ -5,10 +5,20 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo hello, world!
-  displayName: 'one line script'
-
-- script: |
-    echo hello world2
-    echo one more line
-  displayName: 'two line script'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: '62f9f89c-9f06-4957-9e86-f06b3b597259'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
