@@ -20,7 +20,7 @@ steps:
     projects: '**/*.csproj'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.CurrentWorkingDirectory)/Vignesh19930919/BlazorApp/BlazorApp1/bin'
+    SourceFolder: '$(System.CurrentWorkingDirectory)/BlazorApp/BlazorApp1/bin'
     Contents: '**'
     TargetFolder: '$(System.BuildArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
