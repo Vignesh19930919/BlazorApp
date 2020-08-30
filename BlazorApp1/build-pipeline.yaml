@@ -6,7 +6,7 @@ pool:
 
 steps:
 - script:echo hello, world!
-  displayName: 'one-line script'
+  displayName: 'one line script'
 
 - script: |
     echo hello world2
