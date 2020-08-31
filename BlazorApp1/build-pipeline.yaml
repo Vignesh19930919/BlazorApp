@@ -32,13 +32,6 @@ steps:
     command: 'test'
     projects: '**/*.csproj'
 
-- task: SonarCloudAnalyze@1
-  displayName: 'Sonar Cloud Analyzer'
-
-- task: SonarCloudPublish@1
-  displayName: 'sonar cloud Results'
-  inputs:
-    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     Contents: '**/bin/**'
