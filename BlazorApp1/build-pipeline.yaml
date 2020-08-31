@@ -18,7 +18,7 @@ steps:
     SonarCloud: 'AzureDevops'
     organization: 'vignesh19930919'
     scannerMode: 'MSBuild'
-    projectKey: 'AzureDevops'
+    projectKey: 'Vignesh19930919_BlazorApp'
     projectName: 'AzureDevops'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
