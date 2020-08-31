@@ -46,8 +46,6 @@ steps:
   displayName: 'Push the NuGet Package'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
     publishVstsFeed: '3582d680-170d-470f-aa86-3ebf88e62c14'
 - task: CopyFiles@2
   inputs:
