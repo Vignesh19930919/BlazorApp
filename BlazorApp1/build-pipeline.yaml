@@ -46,7 +46,9 @@ steps:
   displayName: 'Push the NuGet Package'
   inputs:
     command: 'push'
-    publishVstsFeed: '3582d680-170d-470f-aa86-3ebf88e62c14'
+    publishVstsFeed: 'AzurePipelines-CI/AzureDevops'
+    allowPackageConflicts: true
+  condition: succeeded()
 - task: CopyFiles@2
   inputs:
     Contents: '**/bin/**'
