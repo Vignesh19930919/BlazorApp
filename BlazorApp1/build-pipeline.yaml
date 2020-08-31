@@ -16,7 +16,7 @@ steps:
   displayName: 'Prepare Sonar Cloud Analysis'
   inputs:
     SonarCloud: 'AzureDevops'
-    organization: 'Vignesh19930919'
+    organization: ''
     scannerMode: 'MSBuild'
     projectKey: 'AzureDevops'
     projectName: 'AzureDevops'
