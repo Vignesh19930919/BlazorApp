@@ -46,7 +46,9 @@ steps:
   displayName: 'Push the NuGet Package'
   inputs:
     command: 'push'
-    publishVstsFeed: 'AzurePipelines-CI/AzureDevops'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '62f9f89c-9f06-4957-9e86-f06b3b597259'
     allowPackageConflicts: true
   condition: succeeded()
 - task: CopyFiles@2
